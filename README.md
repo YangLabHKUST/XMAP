@@ -1,5 +1,5 @@
 # XMAP-beta
-This is the beta version of XMAP package that implements the XMAP approach for cross-population fine-mapping (XMAP) by leveraging genetic diversity and accounting for confounding bias.
+This is the beta version of the XMAP R package for cross-population fine-mapping by leveraging genetic diversity and accounting for confounding bias.
 
 # Installation
 ```
