@@ -9,19 +9,3 @@ test <- function(XX) {
     .Call(`_XMAP_test`, XX)
 }
 
-rcpparma_hello_world <- function() {
-    .Call(`_XMAP_rcpparma_hello_world`)
-}
-
-rcpparma_outerproduct <- function(x) {
-    .Call(`_XMAP_rcpparma_outerproduct`, x)
-}
-
-rcpparma_innerproduct <- function(x) {
-    .Call(`_XMAP_rcpparma_innerproduct`, x)
-}
-
-rcpparma_bothproducts <- function(x) {
-    .Call(`_XMAP_rcpparma_bothproducts`, x)
-}
-
