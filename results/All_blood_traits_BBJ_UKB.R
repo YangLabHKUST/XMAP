@@ -164,8 +164,7 @@ for (chr in chr_all) {
                            min_abs_corr = 0.1,
                            check_prior = F)
     saveRDS(susie_eas, file = paste0("/home/share/mingxuan/fine_mapping/analysis/results/",trait,"_susie_out_eas_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
-    susie_plot(susie_eas, y = "PIP",  main = "SuSiE-WeGene_EAS")
-    susie_plot(z_eas, y = "z",  main = "SuSiE-WeGene_EAS")
+
 
     susie_eur <- susie_rss(z_eur, R_brit,
                            L = 10,
@@ -174,8 +173,7 @@ for (chr in chr_all) {
                            min_abs_corr = 0.1,
                            check_prior = F)
     saveRDS(susie_eur, file = paste0("/home/share/mingxuan/fine_mapping/analysis/results/",trait,"_susie_out_ukb_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
-    susie_plot(susie_eur, y = "PIP",  main = "SuSiE-UKB_EUR")
-    susie_plot(z_eur, y = "z", main = "GWAS-UKB_EUR")
+
 
 
 
