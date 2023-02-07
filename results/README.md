@@ -1,4 +1,22 @@
-Here, we provide the analysis results and codes in XMAP paper.
+Here, we provide the analysis results and codes for generating them in XMAP paper.
+
+## Codes
+### LDL
+Fine-mapping for all loci on the genome: LDL_all_3pop.R
+
+Extract PIP from the fine-mapping output: pip_LDL.R
+
+### height
+Fine-mapping for all loci on the genome: height_all_data.R
+
+Extract PIP from the fine-mapping output: pip_height_all_data.R
+
+### 12 blood traits
+Fine-mapping for all loci on the genome: All_blood_traits_BBJ_UKB.R
+
+Extract PIP from the fine-mapping output: pip_blood.R
+
+SCAVENGE analysis for identifying trait-relevant cells: scavenge_analysis.R
 
 ## Fine-mapping Results
 ### LDL
