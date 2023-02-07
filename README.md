@@ -1,6 +1,6 @@
 # XMAP
 XMAP is a fast statistical method for cross-population fine-mapping by leveraging genetic diversity and accounting for confounding bias.
-
+![XMAP_overview](https://hkustconnect-my.sharepoint.com/:i:/g/personal/mcaiad_connect_ust_hk/EX50lPryzttLiKupMT8JIY0BIfWK2fQhZlK7Jvreqcj0yQ?e=cCVIQE)
 # Installation
 ```
 install.packages("devtools")
