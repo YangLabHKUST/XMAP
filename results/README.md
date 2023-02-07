@@ -18,6 +18,8 @@ Extract PIP from the fine-mapping output: pip_blood.R
 
 SCAVENGE analysis for identifying trait-relevant cells: scavenge_analysis.R
 
+Generate Figure 7 in the main text: plot_scavenge_blood.R
+
 ## Fine-mapping Results
 ### LDL
 Link: https://hkustconnect-my.sharepoint.com/:f:/g/personal/mcaiad_connect_ust_hk/ElvWk3EXEEVCpej0aJM2dx0B0mECe8b_L18KPdinu8UXEA?e=09G3ZE
