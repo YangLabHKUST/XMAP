@@ -5,11 +5,10 @@ library(data.table)
 library(susieR)
 library(XMAP)
 
-
+# Step 1: estimate confounding and polygenic parameters
 sumstat_UKB <- fread("/home/share/sumstats/format/Height_allSNPs_UKBNealLab_summary_format.txt")
 sumstat_WG <- fread("/home/share/sumstats/format/height_Chinese_allSNPs_summary_format.txt")
 sumstat_sibship <- fread("/home/share/sumstats/format/height_EUR_sibship_summary_format.txt")
-# sumstat_GIANT <- fread("/home/share/sumstats/format/Height_allSNPs_UKBNealLab_summary_format.txt")
 sumstat_BBJ <- fread("/home/share/sumstats/format/height_BBJ2020_beta_se_summary_MTAG_format.txt")
 
 ldscore <- data.frame()
@@ -156,19 +155,16 @@ fit_step2 <- estimate_gc(data.frame(Z = z_bbj, N = sumstat_BBJ$N), data.frame(Z 
 ###################################################################
 
 
+# Step 2: Evaluate SNP PIP given confounding and polygenic parameters
 library(data.table)
 library(RhpcBLASctl)
 library(susieR)
 library(Matrix)
 blas_set_num_threads(40)
-# library(susieR)
-source("/import/home/share/mingxuan/fine_mapping/utils.R")
-source("/import/home/share/mingxuan/fine_mapping/XMAP.R")
-source("/home/share/mingxuan/taam/code/sldxr.R")
+library(susieR)
 sumstat_UKB <- fread("/import/home/share/sumstats/format/Height_allSNPs_UKBNealLab_summary_format.txt")
 sumstat_WG <- fread("/import/home/share/sumstats/format/height_Chinese_allSNPs_summary_format.txt")
 sumstat_sibship <- fread("/import/home/share/sumstats/format/height_EUR_sibship_summary_format.txt")
-# sumstat_GIANT <- fread("/import/home/share/sumstats/format/Height_allSNPs_UKBNealLab_summary_format.txt")
 sumstat_BBJ <- fread("/import/home/share/sumstats/format/height_BBJ2020_beta_se_summary_MTAG_format.txt")
 
 snps <- fread("/import/home/share/mingxuan/fine_mapping/analysis/snps_height_UKB_sibship_WG_BBJ.txt", header = F)$V1
@@ -177,13 +173,13 @@ sumstat_WG <- sumstat_WG[match(snps, sumstat_WG$SNP),]
 sumstat_sibship <- sumstat_sibship[match(snps, sumstat_sibship$SNP),]
 sumstat_BBJ <- sumstat_BBJ[match(snps, sumstat_BBJ$SNP),]
 
-K <- 15
+K <- 10
 
-# eur_data <- "UKB"
-eur_data <- "Sibship"
+eur_data <- "UKB"
+# eur_data <- "Sibship"
 
-# eas_data <- "WG"
-eas_data <- "BBJ"
+eas_data <- "WG"
+# eas_data <- "BBJ"
 
 if (eur_data == "UKB" & eas_data == "WG") {
   ################################# NealLab UKB GWAS + Chinese GWAS ##################################
@@ -347,10 +343,8 @@ for (chr in chr_all) {
                            min_abs_corr = 0.1,
                            check_prior = F)
     saveRDS(susie_eur, file = paste0("/import/home/share/mingxuan/fine_mapping/analysis/results/height_susie_K",K,"_out_", eur_data, "_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
-    # # susie_plot(susie_eur, y = "PIP",  main = "SuSiE-UKB_EUR")
-    # # susie_plot(z_eur, y = "z", main = "GWAS-UKB_EUR")
-    #
-    #
+
+
     # # full XMAP model
     xmap_C <- XMAP::XMAP(simplify2array(list(R_eas, R_brit)), cbind(z_eas, z_eur), c(median(sumstat_EAS_i$N), median(sumstat_EUR_i$N)),
                          K = K, Omega = OmegaHat, Sig_E = c(c1, c2), tol = 1e-6,
@@ -358,12 +352,6 @@ for (chr in chr_all) {
                          estimate_background_variance = F)
     saveRDS(xmap_C, file = paste0("/import/home/share/mingxuan/fine_mapping/analysis/results/height_XMAP_K",K,"_out_", eur_data, "_", eas_data, "_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
 
-    # XMAP model without Omega background
-    xmap_O0 <- XMAP::XMAP(simplify2array(list(R_eas, R_brit)), cbind(z_eas, z_eur), c(median(sumstat_EAS_i$N), median(sumstat_EUR_i$N)),
-                          K = K, Omega = matrix(c(1e-30, 0, 0, 1e-30), 2, 2), Sig_E = c(c1, c2), tol = 1e-6,
-                          maxIter = 200, estimate_residual_variance = F, estimate_prior_variance = T,
-                          estimate_background_variance = F)
-    saveRDS(xmap_O0, file = paste0("/import/home/share/mingxuan/fine_mapping/analysis/results/height_XMAP_Omega0_K",K,"_out_", eur_data, "_", eas_data, "_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
 
     # XMAP model without C confounding adjustment
     xmap_C0 <- XMAP::XMAP(simplify2array(list(R_eas, R_brit)), cbind(z_eas, z_eur), c(median(sumstat_EAS_i$N), median(sumstat_EUR_i$N)),
@@ -371,13 +359,6 @@ for (chr in chr_all) {
                           maxIter = 200, estimate_residual_variance = F, estimate_prior_variance = T,
                           estimate_background_variance = F)
     saveRDS(xmap_C0, file = paste0("/import/home/share/mingxuan/fine_mapping/analysis/results/height_XMAP_C0_K",K,"_out_", eur_data, "_", eas_data, "_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
-
-    # XMAP model without C confounding adjustment
-    xmap_0 <- XMAP::XMAP(simplify2array(list(R_eas, R_brit)), cbind(z_eas, z_eur), c(median(sumstat_EAS_i$N), median(sumstat_EUR_i$N)),
-                         K = K, Omega = matrix(c(1e-30, 0, 0, 1e-30), 2, 2), Sig_E = c(1, 1), tol = 1e-6,
-                         maxIter = 200, estimate_residual_variance = F, estimate_prior_variance = T,
-                         estimate_background_variance = F)
-    saveRDS(xmap_0, file = paste0("/import/home/share/mingxuan/fine_mapping/analysis/results/height_XMAP0_K",K,"_out_", eur_data, "_", eas_data, "_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
 
 
     saveRDS(info, file = paste0("/import/home/share/mingxuan/fine_mapping/analysis/results/height_snpINFO_K",K,"_out_", eur_data, "_", eas_data, "_chr", chr, "_", loci$left[i], "_", loci$right[i], ".RDS"))
