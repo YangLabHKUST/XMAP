@@ -45,7 +45,6 @@ SuSiE (UKBB): *_ukb_PIP.txt
 
 SuSiE (BBJ): *_bbj_PIP.txt
 
-where * = WBC, Lym, Neutro, Mono, Eosino, Baso, Plt, RBC, MCH, MCHC, MCV, Hb
+SCAVENGE analysis of blood traits: https://hkustconnect-my.sharepoint.com/:f:/g/personal/mcaiad_connect_ust_hk/EkcuIxsmluFDrFcWj7C3Ly8BfrWwJ-LeuQZxC-MODjbXUw?e=Rh7ZPv
 
-##### SCAVENGE analysis of blood traits
-Link: https://hkustconnect-my.sharepoint.com/:f:/g/personal/mcaiad_connect_ust_hk/EkcuIxsmluFDrFcWj7C3Ly8BfrWwJ-LeuQZxC-MODjbXUw?e=Rh7ZPv
+where * = WBC, Lym, Neutro, Mono, Eosino, Baso, Plt, RBC, MCH, MCHC, MCV, Hb
