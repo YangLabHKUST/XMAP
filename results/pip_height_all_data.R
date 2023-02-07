@@ -1,11 +1,6 @@
 library(data.table)
 library(susieR)
 source("/import/home/share/mingxuan/fine_mapping/utils.R")
-# height_ukb <- fread("/home/share/mingxuan/Chinese_qc2/bolt/ukb_height_bolt.stats")
-# height_wg <- fread("/home/share/mingxuan/Chinese_qc2/bolt/Chinese_height_bolt.stats")
-#
-# height_ukb$z <- height_ukb$BETA / height_ukb$SE
-# height_wg$z <- height_wg$BETA / height_wg$SE
 
 eur_data <- "UKB"
 # eur_data <- "Sibship"
