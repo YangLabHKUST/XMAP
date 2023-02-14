@@ -12,5 +12,5 @@ We provide a [tutorial website](https://mxcai.github.io/XMAP-tutorial/index.html
 # Reproducibility
 We provide codes and fine-mapping results presented in the XMAP manuscript [here](https://github.com/YangLabHKUST/XMAP/tree/main/results)
 
-# Contect
+# Contact
 Please feel free to contact Mingxuan Cai (mx.cai@cityu.edu.hk) or Prof. Can Yang (macyang@ust.hk) if any questions.
