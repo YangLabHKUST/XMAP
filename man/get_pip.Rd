@@ -16,5 +16,7 @@ a vector of length p representing the PIP for each SNP to be causal.
 This function computes the marginal PIP of each SNP from the gamma matrix of XMAP output
 }
 \examples{
-See vignette.
+data("example_data")
+fit_xmap <- XMAP(simplify2array(list(R1,R2)), cbind(zs1,zs2), c(20000,20000), K = 5, Omega = OmegaHat, Sig_E = c(1,1))
+pip <- get_pip(fit_xmap$gamma)
 }

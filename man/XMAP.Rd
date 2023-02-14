@@ -68,5 +68,6 @@ a list with the following elements:
 XMAP: Cross-population fine-mapping by leveraging genetic diversity and accounting for confounding bias
 }
 \examples{
-See vignette.
+data("example_data")
+fit_xmap <- XMAP(simplify2array(list(R1,R2)), cbind(zs1,zs2), c(20000,20000), K = 5, Omega = OmegaHat, Sig_E = c(1,1))
 }

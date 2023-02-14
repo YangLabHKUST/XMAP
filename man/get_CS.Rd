@@ -45,5 +45,12 @@ A list with the following components:
 This function produces the credible sets of the K causal signals from XMAP output
 }
 \examples{
-See vignette.
+data("example_data")
+fit_xmap <- XMAP(simplify2array(list(R1,R2)), cbind(zs1,zs2), c(20000,20000), K = 5, Omega = OmegaHat, Sig_E = c(1,1))
+# Get credible set based on R1
+cs1 <- get_CS(fit_xmap, Xcorr = R1, coverage = 0.95, min_abs_corr = 0.1)
+# Get credible set based on R2
+cs2 <- get_CS(fit_xmap, Xcorr = R2, coverage = 0.95, min_abs_corr = 0.1)
+# Get joint credible set
+cs <- cs1$cs[intersect(names(cs1$cs), names(cs2$cs))]
 }
