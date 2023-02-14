@@ -7,8 +7,17 @@
 #' 
 #'
 #' @examples
-#' See vignette.
-#' @export
+#' data("example_data")
+#' fit_xmap <- XMAP(simplify2array(list(R1,R2)), cbind(zs1,zs2), c(20000,20000), K = 5, Omega = OmegaHat, Sig_E = c(1,1))
+#' # Get credible set based on R1
+#' cs1 <- get_CS(fit_xmap, Xcorr = R1, coverage = 0.95, min_abs_corr = 0.1)
+#' # Get credible set based on R2
+#' cs2 <- get_CS(fit_xmap, Xcorr = R2, coverage = 0.95, min_abs_corr = 0.1)
+#' # Get joint credible set
+#' cs <- cs1$cs[intersect(names(cs1$cs), names(cs2$cs))]
+#' pip <- get_pip(fit_xmap$gamma)
+#' plot_CS(pip, cs, Beta_true[,1], main = "XMAP")
+#' #' @export
 plot_CS <- function(pip, cs, b = NULL,...) {
   color = c(
     "dodgerblue2",

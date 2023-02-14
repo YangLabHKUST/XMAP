@@ -31,7 +31,8 @@
 #' }
 #'
 #' @examples
-#' See vignette.
+#' data("example_data")
+#' fit_xmap <- XMAP(simplify2array(list(R1,R2)), cbind(zs1,zs2), c(20000,20000), K = 5, Omega = OmegaHat, Sig_E = c(1,1))
 #' @export
 
 
@@ -69,6 +70,6 @@ XMAP <- function(R, z, n, K, Sigma = NULL, Omega = NULL, Sig_E = NULL, prior_wei
                           estimate_prior_variance = estimate_prior_variance,estimate_residual_variance = estimate_residual_variance,
                           estimate_background_variance = estimate_background_variance)
   }
-
+  
   return(fit_XMAP)
 }

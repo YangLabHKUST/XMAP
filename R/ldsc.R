@@ -66,7 +66,7 @@ update_weightx <- function(w1,w2,wx,pred1,pred2,predx){
   return(list(w1=w1,w2=w2,wx=wx))
 }
 
-regression <- function(x,y,constrain_intercept,subtract){
+regression <- function(x,y,constrain_intercept,subtract,nblocks=200,jknife=T){
   #########
   # perform least squared regression to get coefs
   #########
@@ -84,10 +84,36 @@ regression <- function(x,y,constrain_intercept,subtract){
     coefs <- solve(xtx,xty)
   }
   
-  return(coefs)
+  if(jknife){
+    seperator <- floor(seq(from=1,to=length(y),length.out=nblocks+1))
+    from <- seperator[-length(seperator)]
+    to <- c(seperator[2:length(y)]-1,length(y))
+    
+    coefs_jk <- matrix(0,nblocks,ncoef)
+    for(i in 1:nblocks){
+      xtx_blk <- t(x[from[i]:to[i],])%*%x[from[i]:to[i],]
+      xty_blk <- t(x[from[i]:to[i],])%*%y[from[i]:to[i]]
+      
+      xtx_loo <- xtx-xtx_blk
+      xty_loo <- xty-xty_blk
+      
+      if(constrain_intercept){
+        coefs_jk[i,-1] <- solve(xtx_loo[-1,-1],xty_loo[-1])
+      } else{
+        coefs_jk[i,] <- solve(xtx_loo,xty_loo)
+      }
+    }
+    jk_cov <- cov(coefs_jk)*(nblocks-1)#cov(t(nblocks*c(coefs)-t((nblocks-1)*coefs_jk))) / nblocks
+    jk_se <- sqrt(diag(jk_cov))
+  } else {
+    jk_se <- NA
+  }
+  
+  return(list(coefs=coefs,
+              coefs_se=jk_se))
 }
 
-get_coef <- function(score,sumstat1,sumstat2,w,constrain_intercept,subtract){
+get_coef <- function(score,sumstat1,sumstat2,w,constrain_intercept,subtract,nblocks=200,jknife=T){
   #########
   # wrapper function to get coefs
   #########
@@ -103,17 +129,21 @@ get_coef <- function(score,sumstat1,sumstat2,w,constrain_intercept,subtract){
   nbar <- mean(nprod)
   score[,-1] <- score[,-1]/nbar
   
-  # apply weight to data 
+  # apply weight to data
   score_w <- score*sqrt(w)
   zprod_w <- zprod*sqrt(w)
   
   # perform regression
-  coefs <- regression(score_w,zprod_w,constrain_intercept,subtract)
+  reg <- regression(score_w,zprod_w,constrain_intercept,subtract,nblocks = nblocks,jknife = jknife)
   
   # re-scale coefs
-  coefs [-1] <- coefs[-1]/nbar
+  reg$coefs [-1] <- reg$coefs[-1]/nbar
   
-  return(coefs)
+  if(jknife){
+    reg$coefs_se[-1] <- reg$coefs_se[-1]/nbar
+  }
+  
+  return(reg)
 }
 
 estimate_intercept <- function(chiSQ,score,ld_w){
@@ -127,7 +157,9 @@ estimate_intercept <- function(chiSQ,score,ld_w){
   return(intercept)
 }
 
-estimate_gc <- function(sumstat1,sumstat2,ldscore1,ldscore2,ldscorex,reg_w1=1,reg_w2=1,reg_wx=1,constrain_intercept=F,int1=1,int2=1,intx=0){
+estimate_gc <- function(sumstat1,sumstat2,ldscore1,ldscore2,ldscorex,
+                        reg_w1=1,reg_w2=1,reg_wx=1,constrain_intercept=F,int1=1,int2=1,intx=0,
+                        nblocks=200,jknife=T){
   
   # add an additional column for intercept
   ldscore1 <- cbind(1,ldscore1)
@@ -150,9 +182,9 @@ estimate_gc <- function(sumstat1,sumstat2,ldscore1,ldscore2,ldscorex,reg_w1=1,re
   reg_w <- update_weightx(reg_w1,reg_w2,reg_wx,pred1,pred2,predx)
   
   # conduct step 1 regression to obtain coefs
-  coef1 <- get_coef(ldscore1,sumstat1,sumstat1,reg_w$w1,constrain_intercept,int1)
-  coef2 <- get_coef(ldscore2,sumstat2,sumstat2,reg_w$w2,constrain_intercept,int2)
-  coefx <- get_coef(ldscorex,sumstat1,sumstat2,reg_w$wx,constrain_intercept,intx)
+  coef1 <- get_coef(ldscore1,sumstat1,sumstat1,reg_w$w1,constrain_intercept,int1,nblocks = nblocks,jknife = jknife)
+  coef2 <- get_coef(ldscore2,sumstat2,sumstat2,reg_w$w2,constrain_intercept,int2,nblocks = nblocks,jknife = jknife)
+  coefx <- get_coef(ldscorex,sumstat1,sumstat2,reg_w$wx,constrain_intercept,intx,nblocks = nblocks,jknife = jknife)
   
   return(list(tau1=coef1,tau2=coef2,theta=coefx))
 }
