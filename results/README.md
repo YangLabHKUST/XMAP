@@ -3,13 +3,13 @@ Here, we provide the analysis results and codes for generating them in XMAP pape
 
 ## Codes
 ### Figure generating codes:
-Figure 4:
+Figure 4: (Fig4_LDL_ncausal.html)[https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.html]
 
-Figure 5:
+Figure 5: (Fig5_replicate.html)[https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.html]
 
-Figure 6:
+Figure 6: (Fig6_height_multiple_signal.html)[https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.html]
 
-Figure 7:
+Figure 7: (Figure7_SCAVENGE.html)[https://github.com/YangLabHKUST/XMAP/blob/main/results/Figure7_SCAVENGE.html]
 
 ### LDL
 Fine-mapping for all loci on the genome: LDL_all_3pop.R
