@@ -10,8 +10,13 @@ The fine-mapping results given by XMAP can be further used for downstream analys
 
 * Latest version: The latest developmental version of XMAP can be downloaded from GitHub and installed from source by 
 ```
-install.packages("devtools")
+# Install devtools, if necessary
+if (!requireNamespace("devtools", quietly = TRUE))
+    install.packages("devtools")
+# Install XMAP
 devtools::install_github("YangLabHKUST/XMAP")
+# load XMAP
+library(XMAP)
 ```
 
 # Manual
