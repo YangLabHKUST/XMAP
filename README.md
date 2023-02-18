@@ -1,5 +1,7 @@
 # XMAP
-XMAP is a fast statistical method for cross-population fine-mapping by leveraging genetic diversity and accounting for confounding bias.
+XMAP is a computationally efficient and statistically accurate method for fine-mapping causal variants using GWAS summary statistics. Briefly, it can leverage different LD structures of genetically diverged populations to better distinguish causal variants from a set of associated variants. By jointly modeling SNPs with putative causal effects and polygenic effects, XMAP allows a linear-time computational cost to identify multiple causal variants, even in the presence of an over-specified number of causal variants. It further corrects confounding bias hidden in the GWAS summary statistics to reduce false positive findings and improve replication rates.
+
+The fine-mapping results given by XMAP can be further used for downstream analysis to illuminate the causal mechanisms at different cascades of biological processes, including tissues, cell populations, and individual cells. In particular, XMAP results can be effectively integrated with single-cell datasets to identify disease/trait-relevant cells.
 ![XMAP_overview](https://github.com/YangLabHKUST/XMAP/blob/main/results/flowchart.png)
 
 # Installation
@@ -25,7 +27,6 @@ We provide codes and fine-mapping results presented in the XMAP manuscript [here
 # License
 XMAP is licensed under the GNU General Public License v3.0.
 
-Improvements and new features of XMAP will be updated on a regular basis. Please post on the GitHub discussion page with any questions.
 
 # Contact
-Please feel free to contact Mingxuan Cai (mx.cai@cityu.edu.hk) or Prof. Can Yang (macyang@ust.hk) if any questions. 
+Improvements and new features of XMAP will be updated on a regular basis. Please feel free to contact Mingxuan Cai (mx.cai@cityu.edu.hk) or Prof. Can Yang (macyang@ust.hk) if any questions. 
