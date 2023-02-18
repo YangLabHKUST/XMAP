@@ -2,7 +2,7 @@
 Here, we provide the analysis results and codes for generating them in XMAP paper.
 
 ## Codes
-### Figure generating codes:
+### Figure generating codes in html:
 Figure 4: [Fig4_LDL_ncausal.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.html)
 
 Figure 5: [Fig5_replicate.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.html)
