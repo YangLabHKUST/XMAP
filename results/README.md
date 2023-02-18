@@ -2,6 +2,15 @@
 Here, we provide the analysis results and codes for generating them in XMAP paper.
 
 ## Codes
+### Figure generating codes:
+Figure 4:
+
+Figure 5:
+
+Figure 6:
+
+Figure 7:
+
 ### LDL
 Fine-mapping for all loci on the genome: LDL_all_3pop.R
 
