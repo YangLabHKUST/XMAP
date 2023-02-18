@@ -6,7 +6,7 @@ Date: 2022-02-26
 Author: Mingxuan Cai
 Maintainer: Mingxuan Cai <mx.cai@cityu.edu.hk>
 Description: This is a beta version of the R-package cross-population fine-mapping (XMAP) by leveraging genetic diversity and accounting for confounding bias. XMAP has three unique features. First, XMAP can leverage distinct LD structures from genetically diverged populations. By jointly analyzing cross-population GWASs, XMAP can effectively improve the power and resolution of fine-mapping. Second, XMAP can identify multiple causal signals with a linear computational cost. Third, XMAP can correct the confounding bias in GWAS summary data to avoid false positive findings and improve reproducibility. 
-License: BSD_3_clause + file LICENSE
+License: GPL (>= 3)
 Imports: Rcpp (>= 1.0.7)
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 7.1.2
