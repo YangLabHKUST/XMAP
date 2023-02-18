@@ -28,6 +28,14 @@ We provide a [tutorial website](https://mxcai.github.io/XMAP-tutorial/index.html
 # Reproducibility
 We provide codes and fine-mapping results presented in the XMAP manuscript [here](https://github.com/YangLabHKUST/XMAP/tree/main/results)
 
+# Operating systems tested on:
+macOS Ventura 13.0 
+
+
+Windows 10 Enterprise Version
+
+
+Ubuntu 18.04.5 LTS (Bionic Beaver)
 
 # License
 XMAP is licensed under the GNU General Public License v3.0.
