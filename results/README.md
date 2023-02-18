@@ -9,7 +9,7 @@ Figure 5: [Fig5_replicate.html](https://github.com/YangLabHKUST/XMAP/blob/main/r
 
 Figure 6: [Fig6_height_multiple_signal.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.html)
 
-Figure 7: [Figure7_SCAVENGE.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Figure7_SCAVENGE.html)
+Figure 7: [Fig7_SCAVENGE.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.html)
 
 ### LDL
 Fine-mapping for all loci on the genome: LDL_all_3pop.R
