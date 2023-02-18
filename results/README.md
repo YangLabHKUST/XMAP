@@ -3,13 +3,13 @@ Here, we provide the analysis results and codes for generating them in XMAP pape
 
 ## Codes
 ### Figure generating codes in html:
-Figure 4: [Fig4_LDL_ncausal.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.html)
+Figure 4: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.html); [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.ipynb)
 
-Figure 5: [Fig5_replicate.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.html)
+Figure 5: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.html); [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.ipynb)
 
-Figure 6: [Fig6_height_multiple_signal.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.html)
+Figure 6: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.html); [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.ipynb)
 
-Figure 7: [Fig7_SCAVENGE.html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.html)
+Figure 7: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.ipynb); [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.ipynb)
 
 ### LDL
 Fine-mapping for all loci on the genome: LDL_all_3pop.R
