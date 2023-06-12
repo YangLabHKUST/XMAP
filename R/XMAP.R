@@ -36,17 +36,51 @@
 #' @export
 
 
-XMAP <- function(R, z, n, K, Sigma = NULL, Omega = NULL, Sig_E = NULL, prior_weights = NULL, maxIter = 1000, tol = 1e-6, 
+XMAP <- function(R, z, betahat, shat, n, var_y, K, Sigma = NULL, Omega = NULL, Sig_E = NULL, prior_weights = NULL, maxIter = 1000, tol = 1e-6, adj_zs = F,
                  include_background = T, estimate_prior_variance = T, estimate_residual_variance = F, estimate_background_variance = F) {
   
   t <- dim(R)[3]
   p <- dim(R)[2]
   XX <- R
-  for(tt in 1:t){
-    XX[,,tt] <- XX[,,tt]*n[tt]
+  
+  if(missing(z)) z <- betahat/shat
+  
+  
+  # When n is provided, compute the PVE-adjusted z-scores.
+  if(adj_zs){
+    adj <- matrix(NA,nrow(z),ncol(z))
+    for(tt in 1:t){
+      adj[,tt] <- (n[tt]-1)/(z[,tt]^2 + n[tt] - 2)
+      z[,tt]   <- sqrt(adj[,tt]) * z[,tt]
+    }
   }
-  # XX <- aperm(apply(R, c(1,2), function(x) x*n),c(2,3,1))
-  Xy <- t(t(z) * sqrt(n))
+  
+  
+  # The sample size (n) is provided, so use PVE-adjusted z-scores.
+  if (!missing(shat) & !missing(var_y)) {
+    
+    # var_y, shat (and bhat) are provided, so the effects are on the
+    # *original scale*.
+    for(tt in 1:t){
+      XtXdiag <- var_y[tt] * adj[,tt]/(shat[,tt]^2)
+      XX[,,tt] <- t(XX[,,tt] * sqrt(XtXdiag)) * sqrt(XtXdiag)
+      XX[,,tt] <- (XX[,,tt] + t(XX[,,tt]))/2
+    }
+    Xy <- t(t(z * sqrt(adj) / shat) * var_y)
+  } else {
+    
+    # The effects are on the *standardized* X, y scale.
+    for(tt in 1:t){
+      XX[,,tt] <- XX[,,tt]*(n[tt]-1)
+    }
+    # XX <- aperm(apply(R, c(1,2), function(x) x*n),c(2,3,1))
+    
+    var_y <- rep(1,t)
+    Xy <- t(t(z) * sqrt(n-1))
+  }
+  yty <- var_y*(n-1)
+  
+  
   if(is.null(Sigma)){
     Sigma <- array(replicate(K,diag(0.1,ncol = t,nrow = t)),dim = c(t,t,K))
     if(K>1){
@@ -65,7 +99,7 @@ XMAP <- function(R, z, n, K, Sigma = NULL, Omega = NULL, Sig_E = NULL, prior_wei
   }
   
   if(include_background){
-    fit_XMAP <- XMAP_suff(XX = XX,Xy = Xy,yty = n,n = n,K = K,Sigma = Sigma,Omega = Omega,Sig_E = Sig_E,prior_weights = prior_weights,
+    fit_XMAP <- XMAP_suff(XX = XX,Xy = Xy,yty = yty,n = n,K = K,Sigma = Sigma,Omega = Omega,Sig_E = Sig_E,prior_weights = prior_weights,
                           maxIter = maxIter,tol = tol,
                           estimate_prior_variance = estimate_prior_variance,estimate_residual_variance = estimate_residual_variance,
                           estimate_background_variance = estimate_background_variance)
