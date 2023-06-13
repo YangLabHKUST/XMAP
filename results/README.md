@@ -5,9 +5,9 @@ Here, we provide the analysis results and codes for generating them in XMAP pape
 ### Figure generating codes:
 Figure 4: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig4_LDL_ncausal.ipynb)
 
-Figure 5: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.ipynb)
+Figure 5: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate_r1.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate_r1.ipynb); initial version: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig5_replicate.ipynb)
 
-Figure 6: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.ipynb)
+Figure 6: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal_r1.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal_r1.ipynb) initial version: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.html), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_height_multiple_signal.ipynb)
 
 Figure 7: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.ipynb), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.ipynb)
 
