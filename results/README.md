@@ -34,6 +34,7 @@ Generate Figure 7 in the main text: plot_scavenge_blood.R
 ### LDL
 Link: https://hkustconnect-my.sharepoint.com/:f:/g/personal/mcaiad_connect_ust_hk/ElvWk3EXEEVCpej0aJM2dx0B0mECe8b_L18KPdinu8UXEA?e=09G3ZE
 
+#### Discovery cohorts:
 XMAP (EUR+AFR+EAS): LDL_3pop_PIP.txt
 
 XMAP (EUR+AFR): LDL_EUR_AFR_PIP.txt
@@ -42,11 +43,28 @@ XMAP (EUR+EAS): LDL_EUR_EAS_PIP.txt
 
 XMAP (AFR+EAS): LDL_AFR_EAS_PIP.txt
 
+SuSiEx (EUR+AFR+EAS): LDL_sussiex_success_3pop_PIP.txt
+
+SuSiEx (EUR+AFR): LDL_sussiex_success_AFR_EUR_PIP.txt
+
+SuSiEx (EUR+EAS): LDL_sussiex_success_EAS_EUR_PIP.txt
+
+SuSiEx (AFR+EAS): LDL_sussiex_success_EAS_AFR_PIP.txt
+
+SuSiE-inf (EUR): LDL_susieinf_EUR_PIP.txt
+
+SuSiE-inf (AFR): LDL_susieinf_AFR_PIP.txt
+
+SuSiE-inf (EAS): LDL_susieinf_EAS_PIP.txt
+
 SuSiE (EUR): LDL_EUR_PIP.txt
 
 SuSiE (AFR): LDL_AFR_PIP.txt
 
 SuSiE (EAS): LDL_EAS_PIP.txt
+
+#### Replication cohort:
+SuSiE (nonUKB EUR GLGC): LDL_EUR_GLGC_nonUKB_PIP.txt
 
 ### height
 Link: https://hkustconnect-my.sharepoint.com/:f:/g/personal/mcaiad_connect_ust_hk/Eptgw2McNLRKjsypetdRwzABaA_JM20jEeGgSwwc_GfK1g?e=XNloZD
