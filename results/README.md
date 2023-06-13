@@ -73,6 +73,12 @@ XMAP (UKBB+Chinese): height_UKB_WG_K10_PIP.txt  height_UKB_WG_K15_PIP.txt
 
 XMAP with C=I (UKBB+Chinese): height_UKB_WG_CI_K10_PIP.txt  height_UKB_WG_CI_K15_PIP.txt
 
+SuSiEx (UKBB+Chinese): height_susiex_success_UKB_WG_K10_PIP.txt
+
+SuSiE-inf (UKBB): height_susieinf_converge_UKB_K10_PIP.txt
+
+SuSiE-inf (Chinese): height_susieinf_converge_WG_K10_PIP.txt
+
 SuSiE (UKBB): height_UKB_K10_PIP.txt  height_UKB_K15_PIP.txt
 
 SuSiE (Chinese): height_WG_K10_PIP.txt  height_WG_K15_PIP.txt
