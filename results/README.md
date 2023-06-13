@@ -11,6 +11,8 @@ Figure 6: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig6_hei
 
 Figure 7: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.ipynb), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig7_SCAVENGE.ipynb)
 
+Figure S30: [html](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig_suppl30_LDL_replicate.ipynb), [notebook](https://github.com/YangLabHKUST/XMAP/blob/main/results/Fig_suppl30_LDL_replicate.ipynb)
+
 ### LDL
 Fine-mapping for all loci on the genome: LDL_all_3pop.R
 
