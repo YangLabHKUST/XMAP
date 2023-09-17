@@ -1,4 +1,5 @@
 # XMAP
+[![DOI](https://zenodo.org/badge/598050665.svg)](https://zenodo.org/badge/latestdoi/598050665)
 XMAP is a computationally efficient and statistically accurate method for fine-mapping causal variants using GWAS summary statistics. Briefly, it can leverage different LD structures of genetically diverged populations to better distinguish causal variants from a set of associated variants. By jointly modeling SNPs with putative causal effects and polygenic effects, XMAP allows a linear-time computational cost to identify multiple causal variants, even in the presence of an over-specified number of causal variants. It further corrects confounding bias hidden in the GWAS summary statistics to reduce false positive findings and improve replication rates.
 
 The fine-mapping results given by XMAP can be further used for downstream analysis to illuminate the causal mechanisms at different cascades of biological processes, including tissues, cell populations, and individual cells. In particular, XMAP results can be effectively integrated with single-cell datasets to identify disease/trait-relevant cells.
