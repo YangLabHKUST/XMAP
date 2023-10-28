@@ -6,7 +6,7 @@ XMAP is a computationally efficient and statistically accurate method for fine-m
 Check out our manuscript in Nature Communications:
 
 - [Nature Communications](https://doi.org/10.1038/s41467-023-42614-7)
-- [Full text](https://urldefense.com/v3/__https://rdcu.be/dpGfM__;!!KjDnqvtInNPT!gO0tXuDsQM0696a74hDXc9wMM_F1ke7-AswOo6Wj32PUCbvTRjP5nd_lTRKx-GDr66NJcCinlJEa6cn1BzyE9Cz2tasbsgWzSCaT8g$)
+- [Full text PDF](https://urldefense.com/v3/__https://rdcu.be/dpGfM__;!!KjDnqvtInNPT!gO0tXuDsQM0696a74hDXc9wMM_F1ke7-AswOo6Wj32PUCbvTRjP5nd_lTRKx-GDr66NJcCinlJEa6cn1BzyE9Cz2tasbsgWzSCaT8g$)
 - [bioRxiv preprint](https://doi.org/10.1101/2023.03.30.534832)
 
 Briefly, XMAP leverages different LD structures of genetically diverged populations to better distinguish causal variants from a set of associated variants. By jointly modeling SNPs with putative causal effects and polygenic effects, XMAP allows a linear-time computational cost to identify multiple causal variants, even in the presence of an over-specified number of causal variants. It further corrects confounding bias hidden in the GWAS summary statistics to reduce false positive findings and improve replication rates.
