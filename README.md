@@ -33,7 +33,7 @@ library(XMAP)
 In the R terminal, please use the command `?XMAP` to access the help documents. Please see the tutorial website https://mxcai.github.io/XMAP-tutorial/index.html for details on using XMAP, which includes several tutorials:
 - For a quick start, see [here](https://mxcai.github.io/XMAP-tutorial/quick_start.html).
 - For a full real data example with available LD matrice, see [here](https://mxcai.github.io/XMAP-tutorial/LDL.html).
-- To construct your own LD matrices with your own genotype data or publicly available data, see [here](https://mxcai.github.io/XMAP-tutorial/LDL_TGP.html)
+- To construct LD matrices with your own genotype data or publicly available data, see [here](https://mxcai.github.io/XMAP-tutorial/LDL_TGP.html)
 
 # Tutorial
 We provide a [tutorial website](https://mxcai.github.io/XMAP-tutorial/index.html) of XMAP for analyzing cross-population GWAS data. Please see the vignettes in the tutorial for details of installation, usage and visualization. The datasets involved in the tutorial can be downloaded [here](https://hkustconnect-my.sharepoint.com/:f:/g/personal/mcaiad_connect_ust_hk/EhJHXBkK_DNBjLFbIPjMeaoBFlmFwlz0F_uXXU0kvIrVGg?e=sTEh8O).
