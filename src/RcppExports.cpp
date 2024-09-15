@@ -73,6 +73,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_XMAP_XMAP_suff", (DL_FUNC) &_XMAP_XMAP_suff, 14},
+    {"_XMAP_XMAP_suff_old", (DL_FUNC) &_XMAP_XMAP_suff_old, 14},
     {"_XMAP_test", (DL_FUNC) &_XMAP_test, 1},
     {NULL, NULL, 0}
 };
