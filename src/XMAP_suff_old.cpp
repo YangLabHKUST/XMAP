@@ -9,7 +9,7 @@
 
 
 // [[Rcpp::export]]
-Rcpp::List XMAP_suff(const arma::cube & XX, const arma::mat & Xy, const arma::colvec yty, const arma::colvec & n,  
+Rcpp::List XMAP_suff_old(const arma::cube & XX, const arma::mat & Xy, const arma::colvec yty, const arma::colvec & n,  
                      int K, arma::cube Sigma, arma::mat Omega, arma::colvec & Sig_E,
                      const arma::colvec & prior_weights, int maxIter, double tol,
                      bool estimate_prior_variance, bool estimate_residual_variance, bool estimate_background_variance) {
@@ -19,7 +19,7 @@ Rcpp::List XMAP_suff(const arma::cube & XX, const arma::mat & Xy, const arma::co
   
   arma::cube invSigma(t,t,K);
   for(int k = 0; k < K; k++) {
-    invSigma.slice(k) = Sigma.slice(k).i();;
+    invSigma.slice(k) = Sigma.slice(k).i();
   }
   
   // posterior foreground parameters
@@ -35,6 +35,27 @@ Rcpp::List XMAP_suff(const arma::cube & XX, const arma::mat & Xy, const arma::co
   arma::field<arma::cube> post_mumu(K);
   
   // posterior background
+  // arma::mat XXtp(t*p,t*p,arma::fill::value(0));
+  // for(int tt = 0; tt < t; tt++){
+  //   XXtp.submat(p*tt,p*tt,p*(tt+1)-1,p*(tt+1)-1) = XX.slice(tt) / Sig_E(tt);
+  // }
+  // arma::mat invLambda = XXtp + arma::kron(Omega.i(),arma::eye(p,p));
+  // arma::mat cholinvLambda = arma::chol(invLambda);
+  // arma::mat invU = cholinvLambda.i();
+  // arma::mat Lambda = invU * invU.t();
+  // 
+  // arma::colvec nutp = Lambda * arma::vectorise(Xy.each_row() / Sig_E.t());
+  // arma::mat nu = arma::reshape(nutp,p,t).t();
+  // arma::mat XXnu(p,t);
+  // for(int tt = 0; tt < t; tt++){
+  //   XXnu.col(tt) = XX.slice(tt) * nu.row(tt).t();
+  // }
+  
+  
+  
+  
+  
+  
   arma::mat nu(t,p);
   arma::mat XXnu(p,t);
   for(int j = 0; j < t; j++){
