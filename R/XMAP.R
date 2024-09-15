@@ -103,6 +103,11 @@ XMAP <- function(R, z, betahat, shat, n, var_y, K, Sigma = NULL, Omega = NULL, S
                           maxIter = maxIter,tol = tol,
                           estimate_prior_variance = estimate_prior_variance,estimate_residual_variance = estimate_residual_variance,
                           estimate_background_variance = estimate_background_variance)
+  } else{
+    fit_XMAP <- XMAP_suff(XX = XX,Xy = Xy,yty = yty,n = n,K = K,Sigma = Sigma,Omega = diag(rep(1e-30,t)),Sig_E = Sig_E,prior_weights = prior_weights,
+                          maxIter = maxIter,tol = tol,
+                          estimate_prior_variance = estimate_prior_variance,estimate_residual_variance = estimate_residual_variance,
+                          estimate_background_variance = estimate_background_variance)
   }
   
   return(fit_XMAP)
