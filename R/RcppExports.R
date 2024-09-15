@@ -5,6 +5,10 @@ XMAP_suff <- function(XX, Xy, yty, n, K, Sigma, Omega, Sig_E, prior_weights, max
     .Call(`_XMAP_XMAP_suff`, XX, Xy, yty, n, K, Sigma, Omega, Sig_E, prior_weights, maxIter, tol, estimate_prior_variance, estimate_residual_variance, estimate_background_variance)
 }
 
+XMAP_suff_old <- function(XX, Xy, yty, n, K, Sigma, Omega, Sig_E, prior_weights, maxIter, tol, estimate_prior_variance, estimate_residual_variance, estimate_background_variance) {
+    .Call(`_XMAP_XMAP_suff_old`, XX, Xy, yty, n, K, Sigma, Omega, Sig_E, prior_weights, maxIter, tol, estimate_prior_variance, estimate_residual_variance, estimate_background_variance)
+}
+
 test <- function(XX) {
     .Call(`_XMAP_test`, XX)
 }
