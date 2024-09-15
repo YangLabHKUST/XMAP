@@ -35,6 +35,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// XMAP_suff_old
+Rcpp::List XMAP_suff_old(const arma::cube& XX, const arma::mat& Xy, const arma::colvec yty, const arma::colvec& n, int K, arma::cube Sigma, arma::mat Omega, arma::colvec& Sig_E, const arma::colvec& prior_weights, int maxIter, double tol, bool estimate_prior_variance, bool estimate_residual_variance, bool estimate_background_variance);
+RcppExport SEXP _XMAP_XMAP_suff_old(SEXP XXSEXP, SEXP XySEXP, SEXP ytySEXP, SEXP nSEXP, SEXP KSEXP, SEXP SigmaSEXP, SEXP OmegaSEXP, SEXP Sig_ESEXP, SEXP prior_weightsSEXP, SEXP maxIterSEXP, SEXP tolSEXP, SEXP estimate_prior_varianceSEXP, SEXP estimate_residual_varianceSEXP, SEXP estimate_background_varianceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::cube& >::type XX(XXSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type Xy(XySEXP);
+    Rcpp::traits::input_parameter< const arma::colvec >::type yty(ytySEXP);
+    Rcpp::traits::input_parameter< const arma::colvec& >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type Sigma(SigmaSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Omega(OmegaSEXP);
+    Rcpp::traits::input_parameter< arma::colvec& >::type Sig_E(Sig_ESEXP);
+    Rcpp::traits::input_parameter< const arma::colvec& >::type prior_weights(prior_weightsSEXP);
+    Rcpp::traits::input_parameter< int >::type maxIter(maxIterSEXP);
+    Rcpp::traits::input_parameter< double >::type tol(tolSEXP);
+    Rcpp::traits::input_parameter< bool >::type estimate_prior_variance(estimate_prior_varianceSEXP);
+    Rcpp::traits::input_parameter< bool >::type estimate_residual_variance(estimate_residual_varianceSEXP);
+    Rcpp::traits::input_parameter< bool >::type estimate_background_variance(estimate_background_varianceSEXP);
+    rcpp_result_gen = Rcpp::wrap(XMAP_suff_old(XX, Xy, yty, n, K, Sigma, Omega, Sig_E, prior_weights, maxIter, tol, estimate_prior_variance, estimate_residual_variance, estimate_background_variance));
+    return rcpp_result_gen;
+END_RCPP
+}
 // test
 Rcpp::List test(const arma::cube& XX);
 RcppExport SEXP _XMAP_test(SEXP XXSEXP) {
