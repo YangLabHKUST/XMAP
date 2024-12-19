@@ -169,7 +169,7 @@ estimate_gc <- function(sumstat1,sumstat2,ldscore1,ldscore2,ldscorex,
   # get initial estimate of coefs for constructing weights
   raw_coef1 <- get_coef_raw(ldscore1,sumstat1,sumstat1,1)
   raw_coef2 <- get_coef_raw(ldscore2,sumstat2,sumstat2,1)
-  raw_coefx <- get_coef_raw(ldscorex,sumstat1,sumstat2,0)
+  raw_coefx <- get_coef_raw(ldscorex,sumstat1,sumstat2,1)
   
   # get predicted chi-squared for constructing weights
   n1 <- sumstat1$N
